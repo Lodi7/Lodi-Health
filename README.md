@@ -1,6 +1,4 @@
-Nama Lengkap: Lodi Galang Putra Sugianto
-Kategori Proyek yang Dipilih: HealthTech
-Deskripsi Singkat Proyek:
+# Deskripsi Proyek
 Lodi Health's adalah aplikasi layanan kesehatan digital yang dirancang untuk mempermudah masyarakat dalam mengakses layanan medis secara online. Pengguna dapat membeli obat dan suplemen, membaca artikel kesehatan terbaru, melihat profil dokter, serta menghubungi layanan konsultasi langsung dari website. Tampilan sederhana dan intuitif memudahkan navigasi, terutama untuk pengguna awam yang baru pertama kali menggunakan layanan kesehatan digital.
 
 # Integrasi API pada Proyek

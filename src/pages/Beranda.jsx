@@ -32,7 +32,7 @@ function Beranda() {
   }, [location]);
   return (
     <>
-      <main>
+      <main className="overflow-hidden">
         <HeroBeranda id="beranda" />
         <AboutUs id="tentang-Kami" />
         <Service id="layanan" />

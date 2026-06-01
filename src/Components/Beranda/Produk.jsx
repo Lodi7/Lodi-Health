@@ -15,7 +15,7 @@ function Produk(props) {
     });
   }, []);
   return (
-    <section className="py-20 my-16 bg-white" id={props.id}>
+    <section className="py-20 my-16 bg-white overflow-hidden" id={props.id}>
       <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-8">
         <div className="lg:w-1/4 w-full">
           <h2

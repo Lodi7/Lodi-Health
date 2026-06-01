@@ -17,7 +17,7 @@ function HeroBeranda(props) {
     }
   };
   return (
-    <section className="hero-background" id={props.id}>
+    <section className="hero-background overflow-hidden" id={props.id}>
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="title-hero" data-aos="fade-right">

@@ -3,7 +3,7 @@ import FormKontak from "../Form/FormKontak";
 function Kontak(props) {
   return (
     <section
-      className="bg-white min-h-screen py-16 h-full flex items-center text-black px-4 md:px-10 lg:px-20"
+      className="bg-white min-h-screen py-16 h-full flex items-center text-black px-4 md:px-10 lg:px-20 overflow-hidden"
       id={props.id}
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

@@ -35,7 +35,7 @@ function AboutUs(props) {
       ? "fade"
       : "fade";
   return (
-    <section className="bg-[#f6f6f6] py-24 w-auto h-auto" id={props.id} overflow-hidden>
+    <section className="bg-[#f6f6f6] py-24 w-auto h-auto overflow-hidden" id={props.id}>
       <div className="sm:flex items-center max-w-screen-xl mx-auto">
         <div className="sm:w-1/2 p-10 flex justify-center items-center sm:block">
           <div className="relative flex justify-center items-center sm:block">

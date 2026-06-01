@@ -19,7 +19,7 @@ function Blog() {
   }, []);
   return (
     <section
-      className="max-w-full mx-auto px-4 py-20 bg-gradient-to-b from-[#82c182] to-[#7fb883]"
+      className="max-w-full mx-auto px-4 py-20 bg-gradient-to-b from-[#82c182] to-[#7fb883] overflow-hidden"
       id="blog"
     >
       <div className="max-w-7xl mx-auto">

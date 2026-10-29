@@ -8,11 +8,11 @@ function Breadcrumb() {
   if (location.pathname === "/") return null;
 
   return (
-    <ol className="flex items-center space-x-2">
+    <ol className="flex items-center space-x-2 text-sm font-medium">
       <li>
         <Link
           to="/"
-          className="hover:underline text-white/90"
+          className="text-white/80 hover:text-white hover:underline transition-colors"
           state={{ scrollY: window.scrollY }}
         >
           Beranda
@@ -30,13 +30,13 @@ function Breadcrumb() {
 
         return (
           <li key={to} className="flex items-center">
-            <span className="mx-2">›</span>
+            <span className="mx-2 text-white/50 select-none">›</span>
             {isLast ? (
-              <span className="text-white">{label}</span>
+              <span className="text-white font-semibold drop-shadow-sm">{label}</span>
             ) : (
               <Link
                 to={to}
-                className="hover:underline text-white"
+                className="text-white/80 hover:text-white hover:underline transition-colors"
                 state={{ scrollY: window.scrollY }}
               >
                 {label}

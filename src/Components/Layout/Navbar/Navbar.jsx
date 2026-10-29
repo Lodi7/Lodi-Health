@@ -62,10 +62,14 @@ function Navbar(props) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, props.links, menuOpen]);
+
+  const activeLinkClass = "text-white font-bold opacity-100 transition-all duration-150 drop-shadow-sm";
+  const inactiveLinkClass = "text-white/80 hover:text-white hover:opacity-100 font-medium transition-all duration-150";
+
   return (
     <>
       <nav
-        className={`navbar transition-transform duration-500 ${
+        className={`navbar transition-transform duration-300 ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -73,11 +77,11 @@ function Navbar(props) {
           <div className="flex flex-col items-start">
             <Link
               to="/"
-              className="navbar-brand-container flex items-center space-x-2"
+              className="navbar-brand-container flex items-center space-x-2.5"
             >
               <img
                 src="/Logo.png"
-                className="xl:h-[70px] sm:h-[60px] h-[50px]"
+                className="h-10 sm:h-12 w-auto object-contain drop-shadow-sm"
                 alt="Logo"
               />
               <span className="navbar-brand">{props.brand}</span>
@@ -89,7 +93,7 @@ function Navbar(props) {
               <div className="relative pr-1.5">
                 <button
                   onClick={() => setDropdownOpen((prev) => !prev)}
-                  className=" relative w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden"
+                  className="relative w-10 h-10 rounded-full bg-white/20 border-2 border-white/80 flex items-center justify-center overflow-hidden hover:ring-2 hover:ring-white transition-all cursor-pointer"
                 >
                   <img
                     src={avatarSrc}
@@ -98,22 +102,26 @@ function Navbar(props) {
                   />
                 </button>
                 {dropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white text-sm shadow-md rounded-lg z-50 overflow-hidden">
+                  <div className="absolute right-0 mt-2 w-48 bg-white text-sm shadow-xl rounded-xl border border-slate-100 z-50 overflow-hidden py-1 text-slate-800">
+                    <div className="px-4 py-2 border-b border-slate-100 text-xs text-slate-500">
+                      Masuk sebagai <br />
+                      <span className="font-semibold text-slate-800 text-sm truncate block">{user.email || user.nama}</span>
+                    </div>
                     <Link
                       to="/setting"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                      className="block px-4 py-2 text-slate-700 hover:bg-slate-50 font-medium"
                       onClick={() => setDropdownOpen(false)}
                     >
-                      Settings
+                      Pengaturan Akun
                     </Link>
                     <button
                       onClick={() => {
                         logout();
                         setDropdownOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 font-medium"
                     >
-                      Sign out
+                      Keluar
                     </button>
                   </div>
                 )}
@@ -131,7 +139,7 @@ function Navbar(props) {
                   className="daftar"
                   teks="Daftar"
                   onClick={() => setFormAktif("daftar")}
-                />{" "}
+                />
               </>
             )}
             {location.pathname === "/" && (
@@ -175,16 +183,13 @@ function Navbar(props) {
                             setActiveIndex(index);
                             setMenuOpen(false);
                           }}
-                          className={`cursor-pointer transition-opacity duration-200 ${
-                            index === activeIndex
-                              ? "text-white font-semibold opacity-100"
-                              : "text-white opacity-60 hover:opacity-80"
+                          className={`cursor-pointer ${
+                            index === activeIndex ? activeLinkClass : inactiveLinkClass
                           }`}
                         >
                           {link.label}
                         </ScrollLink>
                       ) : (
-                        // Jika belum di halaman beranda, redirect ke "/" dan kirim state
                         <Link
                           to="/"
                           onClick={() => {
@@ -195,10 +200,8 @@ function Navbar(props) {
                             setActiveIndex(index);
                             setMenuOpen(false);
                           }}
-                          className={`cursor-pointer transition-opacity duration-200 ${
-                            index === activeIndex
-                              ? "text-white font-semibold opacity-100"
-                              : "text-white opacity-60 hover:opacity-80"
+                          className={`cursor-pointer ${
+                            index === activeIndex ? activeLinkClass : inactiveLinkClass
                           }`}
                         >
                           {link.label}
@@ -217,11 +220,7 @@ function Navbar(props) {
                             props.links[index].href.substring(1)
                           );
                         }}
-                        className={`transition-opacity duration-200 ${
-                          index === activeIndex
-                            ? "text-white font-semibold opacity-100"
-                            : "text-white opacity-60 hover:opacity-80"
-                        }`}
+                        className={index === activeIndex ? activeLinkClass : inactiveLinkClass}
                       >
                         {link.label}
                       </Link>
@@ -234,10 +233,7 @@ function Navbar(props) {
         </div>
         {location.pathname !== "/" && (
           <nav
-            className={`bg-[#4a834a]/80 border-t border-gray-100 text-white text-lg py-3 px-12 
-      backdrop-blur-md transition-all duration-300 ${
-        showNavbar ? "" : "top-0"
-      }`}
+            className="bg-[#3e723e]/95 border-t border-white/20 text-white text-sm py-2.5 px-6 lg:px-12 backdrop-blur-md shadow-inner"
           >
             <Breadcrumb />
           </nav>

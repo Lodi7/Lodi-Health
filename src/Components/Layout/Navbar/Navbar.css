@@ -1,62 +1,160 @@
-@import "tailwindcss";
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  background-color: rgba(74, 131, 74, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-@layer components {
-  .navbar {
-    @apply fixed top-0 left-0 z-50 w-full bg-[#4a834a]/70 xl:h-[75px] sm:h-[65px] h-[55px]
-  backdrop-blur-md transition-transform duration-500 transform max-w-screen;
-  }
+.navbar-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
 
-  .navbar-container {
-    @apply w-full flex flex-wrap items-center justify-between mx-auto lg:px-0.5 px-1 pb-[5px] gap-x-3;
-  }
+.navbar-brand-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
 
-  .navbar-brand-container {
-    @apply flex items-center space-x-3 rtl:space-x-reverse xl:pl-10 pl-1.5;
-  }
-  .navbar-brand {
-    @apply self-center lg:text-2xl text-[17px] sm:text-xl font-extrabold whitespace-nowrap text-[#ffffff] text-shadow-lg;
-  }
+.navbar-brand {
+  align-self: center;
+  font-size: 1.35rem;
+  font-weight: 800;
+  white-space: nowrap;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  letter-spacing: -0.025em;
+}
 
+.navbar-link-container {
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
   .navbar-link-container {
-    @apply items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1;
-  }
-  .navbar-link-container.show {
-    @apply block lg:flex;
-  }
-
-  .navbar-link {
-    /*dalamnya menu bar dan desktop */
-    @apply flex flex-col p-4 lg:p-0 mt-4 font-medium border justify-center
-   border-[#87ba87] rounded-lg bg-[#87ba87] xl:text-[22px] text-[18px]
-   xl:space-x-8 space-x-5 rtl:space-x-reverse lg:flex-row 
-   lg:mt-0 lg:border-0 lg:bg-transparent;
-  }
-
-  .navbar-button {
-    @apply flex lg:order-2 space-x-2 lg:space-x-3 rtl:space-x-reverse xl:pr-10;
-  }
-
-  .login {
-    @apply text-white bg-[#76b576] hover:bg-[#659a65] shadow-sm
-  focus:ring-4 focus:outline-none focus:ring-gray-100 
-  font-medium rounded-lg text-[10px] sm:text-xs lg:text-lg px-2 py-1.5 sm:px-4 sm:py-2 text-center h-auto;
-  }
-
-  .daftar {
-    @apply text-white bg-transparent border-2 border-[#76b576] hover:bg-[#76b576] shadow-sm
-  focus:ring-4 focus:outline-none focus:ring-gray-100 
-  font-medium rounded-lg text-[10px] sm:text-xs lg:text-lg px-2 py-1.5 sm:px-4 sm:py-2 text-center  h-auto;
-  }
-
-  .menu-bar {
-    @apply inline-flex items-center p-2 w-10 h-10 justify-center 
-    text-white rounded-lg lg:hidden 
-  hover:bg-[#76b576] focus:outline-none focus:ring-green-50;
+    display: flex;
+    width: auto;
+    order: 1;
   }
 }
 
+.navbar-link-container.show {
+  display: block;
+}
+
+.navbar-link {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: 0.75rem;
+  font-weight: 500;
+  border-radius: 1rem;
+  background-color: #3f703f;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .navbar-link {
+    flex-direction: row;
+    padding: 0;
+    margin-top: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    gap: 1.75rem;
+  }
+}
+
+.navbar-button {
+  display: flex;
+  align-items: center;
+  order: 2;
+  gap: 0.5rem;
+}
+
+.login {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  padding: 0.5rem 1.1rem;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.login:hover {
+  background-color: rgba(255, 255, 255, 0.26);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+.daftar {
+  color: #244d24;
+  background-color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.daftar:hover {
+  background-color: #f0fdf4;
+  box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.menu-bar {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+@media (min-width: 1024px) {
+  .menu-bar {
+    display: none;
+  }
+}
+
+.menu-bar:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
 .menu-bar.show {
-  @apply inline-flex items-center p-2 w-10 h-10 justify-center 
-  text-sm text-white rounded-lg lg:hidden
-  focus:outline-none focus:ring-green-50 bg-[#87b787];
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
 }

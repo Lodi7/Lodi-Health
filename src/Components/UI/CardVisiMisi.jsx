@@ -1,62 +1,39 @@
+import { ShieldCheck, Target } from "lucide-react";
+
 function CardVisiMisi() {
   const data = [
     {
       title: "Misi Kami",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-green-600"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-          />
-        </svg>
-      ),
+      icon: <ShieldCheck className="h-8 w-8 text-emerald-600" />,
       description:
-        "Menyediakan akses kesehatan digital yang terjangkau, mudah digunakan, dan dapat diandalkan oleh seluruh masyarakat Indonesia tanpa terkecuali, dengan mengutamakan kepuasan dan keamanan pasien.",
+        "Menyediakan akses layanan kesehatan digital yang terjangkau, mudah dipahami, dan dapat diandalkan oleh seluruh keluarga Indonesia tanpa terkecuali, dengan mengedepankan keamanan data medis serta standar etika kedokteran tertinggi.",
     },
     {
       title: "Visi Kami",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-green-600"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-          />
-        </svg>
-      ),
+      icon: <Target className="h-8 w-8 text-emerald-600" />,
       description:
-        "Menjadi platform kesehatan digital terdepan di Asia Tenggara pada tahun 2030 dengan menghubungkan 10 juta pasien dengan ribuan tenaga kesehatan profesional melalui teknologi inovatif dan pelayanan terbaik.",
+        "Menjadi ekosistem kesehatan digital nomor satu di Indonesia yang menghubungkan jutaan pasien dengan dokter berlisensi, klinik berfasilitas lengkap, dan apotek terverifikasi dalam satu pengalaman tanpa hambatan.",
     },
   ];
 
   return (
-    <div className="flex flex-col md:flex-row gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
       {data.map((item, index) => (
         <div
           key={index}
-          className="bg-white p-8 rounded-xl shadow-lg flex-1 transition hover:shadow-xl"
-          data-aos="zoom-in"
+          className="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all duration-300 flex flex-col justify-between"
+          data-aos="fade-up"
+          data-aos-delay={index * 150}
         >
-          <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            {item.icon}
+          <div>
+            <div className="bg-emerald-100/80 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-xs">
+              {item.icon}
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 mb-3">{item.title}</h3>
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+              {item.description}
+            </p>
           </div>
-          <h3 className="text-xl font-bold text-gray-800 mb-4">{item.title}</h3>
-          <p className="text-gray-600">{item.description}</p>
         </div>
       ))}
     </div>

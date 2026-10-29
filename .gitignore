@@ -25,3 +25,10 @@ dist-ssr
 
 # Ignore environment variables
 .env
+
+
+# Agent Skills & tooling
+.agents/
+.skills/
+.taste-skill/
+skills-lock.json

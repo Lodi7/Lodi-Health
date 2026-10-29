@@ -9,7 +9,7 @@ import TokoKesehatan from "./pages/TokoKesehatan";
 import DetailProduk from "./pages/DetailProduk";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Setting from "./pages/setting";
+import Setting from "./pages/Setting";
 import Reservasi from "./pages/Reservasi";
 import Konsultasi from "./pages/Konsultasi";
 import AOS from "aos";
@@ -30,7 +30,7 @@ function App() {
   ];
 
   useEffect(() => {
-    AOS.init({ duration: 2000, once: true });
+    AOS.init({ duration: 600, easing: "ease-out-cubic", once: true });
   }, []);
 
   useEffect(() => {
